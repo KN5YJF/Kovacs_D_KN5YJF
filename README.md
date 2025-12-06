@@ -7,85 +7,77 @@ amelyen keresztül bemutatom az alap DevOps folyamatokat:
 - build
 - verziókezelés (trunk-based development)
 - Docker konténerizálás
-- + **1 választható feladatrész** (lásd alul)
+- 1 választható feladatrész** (lásd alul)
 
-1. Alkalmazás
+#1. Alkalmazás
 
 Az app egy egyszerű Express szerver, amely HTTP-n a következőt adja vissza: Hello DevOps world!
 
 Elérhető lokálisan: http://localhost:3000
 
-### Futtatás fejlesztői környezetben
-```bash
-npm install
-npm start
+ Futtatás fejlesztői környezetben
+    ```bash
+        npm install
+        npm start
 
-2. Build
-npm run build
+#2. Build
+        npm run build
 
-3. Verziókezelés — Trunk-based development
-A projekt Git alapon készült.
-main branch → a stabil kód alapja
-több egymásra épülő commit
-készült legalább egy feature branch:feature/change-message
-A feature branch módosítja a kezdő üzenetet, és merge request / pull request után került vissza a main ágba.
+#3. Verziókezelés — Trunk-based development
+    A projekt Git alapon készült.
+    main branch → a stabil kód alapja
+    több egymásra épülő commit
+    készült legalább egy feature branch:feature/change-message
+    A feature branch módosítja a kezdő üzenetet, és merge request / pull request után került vissza a main ágba.
 
-4. Docker
-Az alkalmazásról Docker image készült.
-docker build -t hello-devops:v1 .
+#4. Docker
+    Az alkalmazásról Docker image készült.
+    docker build -t hello-devops:v1 .
 
-Konténer futtatása
-A konténer belső portja: 3000
-A futtatás (külső port 8081 → belső port 3000):
-docker run -p 8081:3000 hello-devops:v1
+    Konténer futtatása
+    A konténer belső portja: 3000
+    A futtatás (külső port 8081 → belső port 3000):
+    docker run -p 8081:3000 hello-devops:v1
 
-A konténerben futó app elérhető: http://localhost:8081
+    A konténerben futó app elérhető: http://localhost:8081
 
-5. Kötelezően választható feladatrész - Választott opció: CI pipeline (GitHub Actions)
-A CI pipeline automatikusan:
-lehúzza a repót
-lefuttatja az npm install és npm run build parancsokat
-Docker image-et épít
-feltölti a GitHub Container Registrybe
-A pipeline konfigurációja:
-.github/workflows/ci.yml
-name: CI Pipeline
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#5. Kötelezően választható feladatrész - Választott opció: CI pipeline (GitHub Actions)
+    A CI pipeline automatikusan:
+    lehúzza a repót
+    lefuttatja az npm install és npm run build parancsokat
+    Docker image-et épít
+    feltölti a GitHub Container Registrybe
+    A pipeline konfigurációja:.github/workflows/ci.yml
+    name: CI Pipeline
+    on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    jobs:
+        build: runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+        steps:
+        - name: Checkout repository uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: "18"
+        - name: Set up Node.js uses: actions/setup-node@v3
+        with: node-version: "18"
 
-    - name: Install dependencies
-      run: npm install
+        - name: Install dependencies run: npm install
 
-    - name: Run build
-      run: npm run build
+        - name: Run build run: npm run build
 
-    - name: Build Docker image
-      run: docker build -t ghcr.io/kn5yjf/hello-devops:v1 .
+        - name: Build Docker image
+            run: docker build -t ghcr.io/kn5yjf/hello-devops:v1 .
 
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v2
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        - name: Login to GitHub Container Registry uses: docker/login-action@v2
+        with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Push image
-      run: docker push ghcr.io/kn5yjf/hello-devops:v1
+        - name: Push image
+            run: docker push ghcr.io/kn5yjf/hello-devops:v1
 
 A publikált image elérhető: https://github.com/KN5YJF/Kovacs_D_KN5YJF
