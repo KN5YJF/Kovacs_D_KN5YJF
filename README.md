@@ -1,6 +1,6 @@
 # DevOps Beadandó – Kovács Dániel (KN5YJF)
 
-Ez a projekt egy egyszerű *Hello DevOps world!* alkalmazás Node.js + Express technológiával,  
+Ez a projekt egy, *Hello DevOps world!* alkalmazás Node.js + Express technológiával,  
 amelyen keresztül bemutatom az alap DevOps folyamatokat:
 
 - fejlesztés (simple HTTP app)
@@ -9,13 +9,14 @@ amelyen keresztül bemutatom az alap DevOps folyamatokat:
 - Docker konténerizálás
 - 1 választható feladatrész** (lásd alul)
 
-#1. Alkalmazás
+Futtatás fejlesztői környezetben
+
+#1. Alakalmazás
 
 Az app egy egyszerű Express szerver, amely HTTP-n a következőt adja vissza: Hello DevOps world!
 
 Elérhető lokálisan: http://localhost:3000
 
- Futtatás fejlesztői környezetben
     ```bash
         npm install
         npm start
@@ -23,7 +24,7 @@ Elérhető lokálisan: http://localhost:3000
 #2. Build
         npm run build
 
-#3. Verziókezelés — Trunk-based development
+#3. Verziókezelés
     A projekt Git alapon készült.
     main branch → a stabil kód alapja
     több egymásra épülő commit
@@ -41,7 +42,7 @@ Elérhető lokálisan: http://localhost:3000
 
     A konténerben futó app elérhető: http://localhost:8081
 
-#5. Kötelezően választható feladatrész - Választott opció: CI pipeline (GitHub Actions)
+#5. Kötelezően választható feladatrész - Választott opció: CI pipeline
     A CI pipeline automatikusan:
     lehúzza a repót
     lefuttatja az npm install és npm run build parancsokat
