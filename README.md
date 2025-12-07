@@ -33,6 +33,7 @@ Elérhető lokálisan: http://localhost:3000
         - npm instal #express alkalmazás, az #1 -es pontban részletezem
         - npm start #elindul a futás
 
+<<<<<<< HEAD
     Eredmény: lokálisan elérhető http://localhost:3000
 
     #2/3 Bulidelés Dockerrel
@@ -104,4 +105,7 @@ Elérhető lokálisan: http://localhost:3000
             run: docker push ghcr.io/kn5yjf/hello-devops:v1
 
 A publikált image elérhető: https://github.com/KN5YJF/Kovacs_D_KN5YJF
+<<<<<<< HEAD
 Docker HUB láb: https://hub.docker.com/repository/docker/kn5yjf/hello-devops/general
+=======
+
