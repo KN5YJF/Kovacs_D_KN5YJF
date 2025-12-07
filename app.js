@@ -1,11 +1,11 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const express = require('express');   //Express keretrendszer betöltés
+const app = express();                //Példány létrehozás
+const port = 3000;                    //Port dedikálás 
 
-app.get('/', (req, res) => {
-  res.send('Hello DevOps world!');
+app.get('/', (req, res) => {          //elérés kezelés 
+  res.send('Hello DevOps!');          //visszadott szöveg
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(port, () => {              //port meghatárosás
+  console.log(`App is running on http://localhost:${port}`);
 });
