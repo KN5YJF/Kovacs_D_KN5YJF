@@ -1,13 +1,13 @@
 {
-  "name": "hello-devops",
+  "name": "hello-devops",    //elnevezés
   "version": "1.0.0",
   "description": "Simple hello world DevOps demo app",
-  "main": "app.js",
+  "main": "app.js",   //belépési pont
   "scripts": {
-    "start": "node app.js",
-    "build": "echo Build finished"
+    "start": "node app.js",  //futtatás
+    "build": "echo Build finished"   //üzenet visszadás
   },
   "dependencies": {
-    "express": "^4.19.0"
+    "express": "^4.19.0"  //telepített keret, adott verzióval
   }
 }
