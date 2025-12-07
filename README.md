@@ -3,11 +3,11 @@
 Ez a projekt egy, *Hello DevOps world!* alkalmazás Node.js + Express technológiával,  
 amelyen keresztül bemutatom az alap DevOps folyamatokat:
 
-- fejlesztés (simple HTTP app)
-- build
-- verziókezelés (trunk-based development)
+- Fejlesztés (HTTP app)
+- Build
+- Verziókezelés (trunk-based development)
 - Docker konténerizálás
-- 1 választható feladatrész** (lásd alul)
+- 1 választható feladatrész - CI pipeline
 
 Futtatás fejlesztői környezetben
 
@@ -48,6 +48,7 @@ Elérhető lokálisan: http://localhost:3000
     lefuttatja az npm install és npm run build parancsokat
     Docker image-et épít
     feltölti a GitHub Container Registrybe
+    
     A pipeline konfigurációja:.github/workflows/ci.yml
     name: CI Pipeline
     on:
