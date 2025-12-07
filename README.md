@@ -3,11 +3,11 @@
 Ez a projekt egy, *Hello DevOps world!* alkalmazás Node.js + Express technológiával,  
 amelyen keresztül bemutatom az alap DevOps folyamatokat:
 
-- fejlesztés (simple HTTP app)
-- build
-- verziókezelés (trunk-based development)
+- Fejlesztés (HTTP app)
+- Build
+- Verziókezelés (trunk-based development)
 - Docker konténerizálás
-- 1 választható feladatrész** (lásd alul)
+- 1 választható feladatrész - CI pipeline
 
 Futtatás fejlesztői környezetben
 
@@ -22,7 +22,28 @@ Elérhető lokálisan: http://localhost:3000
         npm start
 
 #2. Build
-        npm run build
+    Lényegében a projekt bulid és futtatás
+    #2/1 Telepítési kritériumok
+        - Node.js
+        - npm
+        - Docke dektop
+    Ezek az alapvető kritériumok a bild -hez
+    
+    #2/2 Manuális bulid
+        - npm instal #express alkalmazás, az #1 -es pontban részletezem
+        - npm start #elindul a futás
+
+    Eredmény: lokálisan elérhető http://localhost:3000
+
+    #2/3 Bulidelés Dockerrel
+        - docker build -t hello-devops:v1
+
+    #2/4 Docker Hub-ra pusholás
+        - docker login
+        - szükséges tag beépítése
+        - dcoker push
+
+    #2/5 A választott feladatot, lásd 5 -ös pontban
 
 #3. Verziókezelés
     A projekt Git alapon készült.
@@ -42,12 +63,13 @@ Elérhető lokálisan: http://localhost:3000
 
     A konténerben futó app elérhető: http://localhost:8081
 
-#5. Kötelezően választható feladatrész - Választott opció: CI pipeline
+#5. Kötelezően választandó feladatrész - Választott opció: CI pipeline
     A CI pipeline automatikusan:
     lehúzza a repót
     lefuttatja az npm install és npm run build parancsokat
     Docker image-et épít
     feltölti a GitHub Container Registrybe
+    
     A pipeline konfigurációja:.github/workflows/ci.yml
     name: CI Pipeline
     on:
@@ -82,3 +104,4 @@ Elérhető lokálisan: http://localhost:3000
             run: docker push ghcr.io/kn5yjf/hello-devops:v1
 
 A publikált image elérhető: https://github.com/KN5YJF/Kovacs_D_KN5YJF
+Docker HUB láb: https://hub.docker.com/repository/docker/kn5yjf/hello-devops/general
