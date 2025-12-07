@@ -1,7 +1,7 @@
 # Workflow megnevezés
-name: CI - Build and Push Docker image
+name: CI
 
-#minden main brach-ra push -nál, atomatikusan a pipeline
+# minden main brach-ra push -nál, atomatikusan a pipeline
 on:
   push:
     branches: [ "main" ]
