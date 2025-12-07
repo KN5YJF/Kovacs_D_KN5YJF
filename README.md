@@ -96,8 +96,8 @@ Futtatás fejlesztői környezetben
         - name: Push image
             run: docker push ghcr.io/kn5yjf/hello-devops:v1
 
-A publikált image elérhető: https://github.com/KN5YJF/Kovacs_D_KN5YJF
-<<<<<<< HEAD
-Docker HUB láb: https://hub.docker.com/repository/docker/kn5yjf/hello-devops/general
-=======
+GIT HUB: https://github.com/KN5YJF/Kovacs_D_KN5YJF
+
+Docker HUB: https://hub.docker.com/repository/docker/kn5yjf/hello-devops/general
+
 
