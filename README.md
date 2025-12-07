@@ -13,13 +13,8 @@ Futtatás fejlesztői környezetben
 
 #1. Alakalmazás
 
-Az app egy egyszerű Express szerver, amely HTTP-n a következőt adja vissza: Hello DevOps world!
-
-Elérhető lokálisan: http://localhost:3000
-
-    ```bash
-        npm install
-        npm start
+    Az app egy egyszerű Express szerver, amely HTTP-n a következőt adja vissza: Hello DevOps world!
+    Elérhető lokálisan: http://localhost:3000
 
 #2. Build
     Lényegében a projekt bulid és futtatás
@@ -32,9 +27,6 @@ Elérhető lokálisan: http://localhost:3000
     #2/2 Manuális bulid
         - npm instal #express alkalmazás, az #1 -es pontban részletezem
         - npm start #elindul a futás
-
-<<<<<<< HEAD
-    Eredmény: lokálisan elérhető http://localhost:3000
 
     #2/3 Bulidelés Dockerrel
         - docker build -t hello-devops:v1
